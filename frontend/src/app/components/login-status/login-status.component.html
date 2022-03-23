@@ -1,0 +1,44 @@
+<div class="login-status-header">
+	<i class="fas fa-user-circle"></i>
+
+	<div class="login-box">
+		<div *ngIf="isAuthenticated && userFullName" class="top">
+			Signed in as <br />
+			{{ userFullName }}
+		</div>
+
+		<div class="nav">
+			<button
+				*ngIf="!isAuthenticated"
+				routerLink="/login"
+				class="security-btn mt-2"
+			>
+				Login
+			</button>
+
+			<button
+				routerLink="/order-history"
+				*ngIf="isAuthenticated"
+				class="security-btn mt-2"
+			>
+				Orders
+			</button>
+
+			<button
+				routerLink="/members"
+				*ngIf="isAuthenticated"
+				class="security-btn mt-2"
+			>
+				Members
+			</button>
+
+			<button
+				*ngIf="isAuthenticated"
+				(click)="logout()"
+				class="security-btn mt-2"
+			>
+				Logout
+			</button>
+		</div>
+	</div>
+</div>

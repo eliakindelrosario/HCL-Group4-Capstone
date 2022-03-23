@@ -1,0 +1,72 @@
+.security-btn {
+  position: relative;
+  width: 100%;
+  color: #fff;
+  border: 10px solid #205b8d;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 43px;
+  background: #205b8d;
+}
+
+.login-status-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: inline-block;
+}
+
+.login-status-user-info {
+  line-height: 43px;
+  border: 1px;
+  padding: 0 17px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.login-status-header .fas {
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-status-header .fas:hover {
+  color: #8ebad3;
+}
+
+.login-box {
+  position: fixed;
+  right: 40px;
+  top: 44px;
+  width: 200px;
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: none;
+}
+
+.login-status-header .fas:hover ~ .login-box {
+  display: block;
+}
+.login-status-header .login-box:hover {
+  display: block;
+}
+
+.login-box .top {
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.login-box .nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
