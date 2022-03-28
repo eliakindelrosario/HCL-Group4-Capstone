@@ -93,3 +93,7 @@ export const environment = {
 	stripePublishableKey: "",
 };
 ```
+
+
+
+# Add SonarCloud
