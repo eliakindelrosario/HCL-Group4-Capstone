@@ -1,22 +1,19 @@
-package com.eliakin.ecommerce;
+package com.eliakin.ecommerce.controller;
 
-import com.eliakin.ecommerce.controller.CheckoutController;
-import com.eliakin.ecommerce.dto.PaymentInfo;
-import com.eliakin.ecommerce.service.CheckoutService;
-import com.stripe.exception.StripeException;
-import com.stripe.model.PaymentIntent;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import static org.assertj.core.api.Assertions.assertThat;
+
+import com.eliakin.ecommerce.dto.PaymentInfo;
+import com.eliakin.ecommerce.service.CheckoutService;
+import com.stripe.exception.StripeException;
+import com.stripe.model.PaymentIntent;
 
 @ExtendWith(MockitoExtension.class)
 public class CheckoutControllerPaymentIntentTests {
@@ -29,8 +26,6 @@ public class CheckoutControllerPaymentIntentTests {
 
     @Test
     public void testCreatePaymentIntent() throws StripeException {
-
-
 
         PaymentInfo paymentInfo = new PaymentInfo();
         paymentInfo.setAmount(200);
@@ -49,7 +44,6 @@ public class CheckoutControllerPaymentIntentTests {
         ResponseEntity<String> responseEntity = checkoutController.createPaymentIntent(paymentInfo);
 
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(200);
-        // assertThat(responseEntity.getHeaders().getLocation().getPath()).isEqualTo("");
         assertThat(responseEntity.getBody()).isEqualTo(expectedString);
 
     }
