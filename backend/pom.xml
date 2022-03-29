@@ -129,6 +129,14 @@
 							<formats>
 								<format>XML</format>
 							</formats>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.microsoft.azure</groupId>
+				<artifactId>azure-webapp-maven-plugin</artifactId>
+				<version>1.8.0</version>
 				<configuration>
 					<schemaVersion>V1</schemaVersion>
 					<resourceGroup>ecommerce-demo</resourceGroup>
@@ -151,8 +159,6 @@
 					</resources>
 					</deployment>
 				</configuration>
-			</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
