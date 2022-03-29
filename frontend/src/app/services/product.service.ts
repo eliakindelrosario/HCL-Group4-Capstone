@@ -15,6 +15,14 @@ export class ProductService {
 
 	constructor(private http: HttpClient) {}
 
+	getAllProductPaginate(
+		pageNumber: number,
+		pageSize: number
+	): Observable<GetResponseProducts> {
+		const searchUrl = `${this.baseUrl}?&page=${pageNumber}&size=${pageSize}`;
+		return this.http.get<GetResponseProducts>(searchUrl);
+	}
+
 	getProductListPaginate(
 		pageNumber: number,
 		pageSize: number,

@@ -1,0 +1,14 @@
+<div class="widget">
+	<div class="left">
+		<span class="title">{{ data.title }}</span>
+		<span class="counter"> {{ data.isMoney && "$" }} {{ amount }} </span>
+		<span class="link">{{ data.link }}</span>
+	</div>
+	<div class="right">
+		<div class="percentage positive">
+			<i class="fa-solid fa-angle-up"></i>
+			{{ diff }}%
+		</div>
+		<i class="fa-solid fa-truck icon"></i>
+	</div>
+</div>

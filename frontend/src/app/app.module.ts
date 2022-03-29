@@ -32,6 +32,13 @@ import myAppConfig from "./config/my-app-config";
 import { MembersPageComponent } from "./components/members-page/members-page.component";
 import { OrderHistoryComponent } from "./components/order-history/order-history.component";
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
+import { DashbaordComponent } from "./components/dashbaord/dashbaord.component";
+import { HomeComponent } from "./components/home/home.component";
+import { DashboardSidebarComponent } from "./components/dashboard-sidebar/dashboard-sidebar.component";
+import { DashboardNavbarComponent } from "./components/dashboard-navbar/dashboard-navbar.component";
+import { DashboardProductListComponent } from "./components/dashboard-product-list/dashboard-product-list.component";
+import { DashboardProductFormComponent } from "./components/dashboard-product-form/dashboard-product-form.component";
+import { DashboardWidgetComponent } from './components/dashboard-widget/dashboard-widget.component';
 
 const oktaConfig = Object.assign(
 	{
@@ -47,27 +54,60 @@ const oktaConfig = Object.assign(
 const oktaAuth = new OktaAuth(oktaConfig);
 
 const routes: Routes = [
+	// {
+	// 	path: "order-history",
+	// 	component: OrderHistoryComponent,
+	// 	canActivate: [OktaAuthGuard],
+	// },
+	// {
+	// 	path: "members",
+	// 	component: MembersPageComponent,
+	// 	canActivate: [OktaAuthGuard],
+	// },
+	// { path: "login/callback", component: OktaCallbackComponent },
+	// { path: "login", component: LoginComponent },
+	// { path: "checkout", component: CheckoutComponent },
+	// { path: "search/:keyword", component: ProductListComponent },
+	// { path: "category/:id", component: ProductListComponent },
+	// { path: "products/:id", component: ProductDetailsComponent },
+	// { path: "cart-details", component: CartDetailsComponent },
+	// { path: "category", component: ProductListComponent },
+	// { path: "products", component: ProductListComponent },
 	{
-		path: "order-history",
-		component: OrderHistoryComponent,
-		canActivate: [OktaAuthGuard],
+		path: "dashboard",
+		component: DashbaordComponent,
+		children: [
+			{ path: "", component: DashboardProductListComponent },
+			{ path: "update/:id", component: DashboardProductFormComponent },
+			{ path: "add-new", component: DashboardProductFormComponent },
+		],
 	},
 	{
-		path: "members",
-		component: MembersPageComponent,
-		canActivate: [OktaAuthGuard],
+		path: "products",
+		component: HomeComponent,
+		children: [
+			{
+				path: "order-history",
+				component: OrderHistoryComponent,
+				canActivate: [OktaAuthGuard],
+			},
+			{
+				path: "members",
+				component: MembersPageComponent,
+				canActivate: [OktaAuthGuard],
+			},
+			{ path: "login/callback", component: OktaCallbackComponent },
+			{ path: "login", component: LoginComponent },
+
+			{ path: "checkout", component: CheckoutComponent },
+			{ path: "search/:keyword", component: ProductListComponent },
+			{ path: "category/:id", component: ProductListComponent },
+			{ path: ":id", component: ProductDetailsComponent },
+			{ path: "cart-details", component: CartDetailsComponent },
+			{ path: "category", component: ProductListComponent },
+			{ path: "", component: ProductListComponent },
+		],
 	},
-
-	{ path: "login/callback", component: OktaCallbackComponent },
-	{ path: "login", component: LoginComponent },
-
-	{ path: "checkout", component: CheckoutComponent },
-	{ path: "search/:keyword", component: ProductListComponent },
-	{ path: "category/:id", component: ProductListComponent },
-	{ path: "products/:id", component: ProductDetailsComponent },
-	{ path: "cart-details", component: CartDetailsComponent },
-	{ path: "category", component: ProductListComponent },
-	{ path: "products", component: ProductListComponent },
 	{ path: "", redirectTo: "/products", pathMatch: "full" },
 	{ path: "**", redirectTo: "/products", pathMatch: "full" },
 ];
@@ -86,6 +126,13 @@ const routes: Routes = [
 		LoginStatusComponent,
 		MembersPageComponent,
 		OrderHistoryComponent,
+		DashbaordComponent,
+		HomeComponent,
+		DashboardSidebarComponent,
+		DashboardNavbarComponent,
+		DashboardProductListComponent,
+		DashboardProductFormComponent,
+  DashboardWidgetComponent,
 	],
 	imports: [
 		RouterModule.forRoot(routes),

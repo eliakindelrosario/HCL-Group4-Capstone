@@ -1,0 +1,64 @@
+<div class="container form-container">
+	<form
+		*ngIf="productFormGroup"
+		[formGroup]="productFormGroup"
+		(ngSubmit)="onSubmit()"
+	>
+		<div class="p-4">
+			<h3 class="text-center pb-3">
+				{{ isUpdate ? "Update Product" : "Add New Product" }}
+			</h3>
+			<div class="row mb-3">
+				<div class="col-md-3 dash-form-group">
+					<img
+						[src]="isUpdate ? product.imageUrl : tempImgUrl"
+						class="img-box"
+					/>
+					<input
+						formControlName="imageUrl"
+						type="file"
+						class="file-input"
+					/>
+				</div>
+				<div class="col-md-9">
+					<div class="row mb-4">
+						<div class="col-md-6 dash-form-group">
+							<label class="title">Name</label>
+							<input formControlName="name" type="text" />
+						</div>
+						<div class="col-md-6 dash-form-group">
+							<label class="title">SKU</label>
+							<input formControlName="sku" type="text" />
+						</div>
+					</div>
+					<div class="row mb-4">
+						<div class="col-md-12 dash-form-group">
+							<label class="title">Description</label>
+							<textarea
+								formControlName="description"
+								type="text"
+								rows="4"
+							></textarea>
+						</div>
+					</div>
+					<div class="row mb-4">
+						<div class="col-md-4 dash-form-group">
+							<label class="title">Unit Price</label>
+							<input formControlName="unitPrice" type="text" />
+						</div>
+						<div class="col-md-4 dash-form-group">
+							<label class="title">Units In Stock</label>
+							<input formControlName="unitsInStock" type="text" />
+						</div>
+						<div class="col-md-4 dash-form-group d-flex flex-row">
+							<label class="title">Active</label>
+							<input formControlName="active" type="checkbox" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<button class="btn btn-primary next-btn">Next</button>
+		</div>
+	</form>
+</div>
