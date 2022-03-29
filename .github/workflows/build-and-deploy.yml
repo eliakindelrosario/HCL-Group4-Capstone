@@ -8,7 +8,7 @@ on:
       - 'backend/**'
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Set up JDK 8
@@ -28,6 +28,6 @@ jobs:
           mvn clean package
       - uses: azure/webapps-deploy@v1
         with:
-          app-name: spring-petclinic
+          app-name: g4-ecommerce-demo
           publish-profile: ${{ secrets.azureWebAppPublishProfile }} # See https://github.com/Azure/actions-workflow-samples/tree/master/AppService
           package: '${{ github.workspace }}/target/*.jar'
