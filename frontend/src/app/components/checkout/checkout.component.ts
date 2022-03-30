@@ -20,8 +20,8 @@ import { PaymentInfo } from "src/app/common/payment-info";
 
 @Component({
 	selector: "app-checkout",
-	templateUrl: "./checkout.component.html",
-	styleUrls: ["./checkout.component.css"],
+	templateUrl: "./checkout.component-eliakin.html",
+	styleUrls: ["./checkout.component-eliakin.css"],
 })
 export class CheckoutComponent implements OnInit {
 	checkoutFormGroup: FormGroup;
@@ -218,6 +218,7 @@ export class CheckoutComponent implements OnInit {
 	}
 
 	copyShippingAddressToBillingAddress(event) {
+		console.log("run ", event.target.value);
 		if (event.target.checked) {
 			this.checkoutFormGroup.controls["billingAddress"].setValue(
 				this.checkoutFormGroup.controls["shippingAddress"].value
@@ -405,53 +406,5 @@ export class CheckoutComponent implements OnInit {
 
 			formGroup.get("state").setValue(data[0]);
 		});
-	}
-
-	// TODO - Clean Up
-	activeTab: number = 1;
-	changeTab(tab: number) {
-		if (
-			tab === 2 &&
-			this.firstName.value !== "" &&
-			this.lastName.value !== "" &&
-			this.email.value !== ""
-		) {
-			this.activeTab = tab;
-			this.customer_status = true;
-		} else if (
-			tab === 3 &&
-			this.shippingAddressStreet.value !== "" &&
-			this.shippingAddressCity.value !== "" &&
-			this.shippingAddressCountry.value.name !== "" &&
-			this.shippingAddressZipCode.value !== "" &&
-			this.shippingAddressState.value.name !== ""
-		) {
-			if (this.billingAddressCity.value !== "") {
-				this.activeTab = tab + 1;
-				this.shipping_status = true;
-				this.billing_status = true;
-				return;
-			}
-			this.activeTab = tab;
-			this.shipping_status = true;
-		} else if (
-			tab === 4 &&
-			this.billingAddressStreet.value !== "" &&
-			this.billingAddressCity.value !== "" &&
-			this.billingAddressCountry.value.name !== "" &&
-			this.billingAddressZipCode.value !== "" &&
-			this.billingAddressState.value.name !== ""
-		) {
-			this.activeTab = tab;
-			this.billing_status = true;
-		} else if (
-			tab === 5 &&
-			this.creditCardType.value !== "" &&
-			this.creditCardNameOnCard.value !== "" &&
-			this.creditCardNumber.value !== ""
-		) {
-			this.activeTab = tab;
-			this.credit_status = true;
-		}
 	}
 }
