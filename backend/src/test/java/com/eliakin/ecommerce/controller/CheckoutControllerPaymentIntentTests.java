@@ -16,7 +16,7 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
 
 @ExtendWith(MockitoExtension.class)
-public class CheckoutControllerPaymentIntentTests {
+class CheckoutControllerPaymentIntentTests {
 
     @InjectMocks
     CheckoutController checkoutController;
@@ -25,7 +25,7 @@ public class CheckoutControllerPaymentIntentTests {
     CheckoutService checkoutService;
 
     @Test
-    public void testCreatePaymentIntent() throws StripeException {
+    void testCreatePaymentIntent() throws StripeException {
 
         PaymentInfo paymentInfo = new PaymentInfo();
         paymentInfo.setAmount(200);

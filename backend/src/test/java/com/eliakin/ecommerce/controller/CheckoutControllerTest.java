@@ -23,7 +23,7 @@ import com.eliakin.ecommerce.entity.OrderItem;
 import com.eliakin.ecommerce.service.CheckoutServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
-public class CheckoutControllerTest {
+class CheckoutControllerTest {
 
 		@Mock
 		private CheckoutServiceImpl checkoutServiceImpl;
