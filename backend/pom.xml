@@ -132,6 +132,14 @@
 						</configuration>
 					</execution>
 				</executions>
+				<configuration>
+					<excludes>
+						<exclude>**/com/eliakin/ecommerce/SpringBootEcommerceApplication.class</exclude>
+						<exclude>**/com/eliakin/ecommerce/entity/*</exclude>
+						<exclude>**/com/eliakin/ecommerce/dto/*</exclude>
+						<exclude>**/com/eliakin/ecommerce/config/*</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
