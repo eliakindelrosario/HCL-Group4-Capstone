@@ -1,5 +1,8 @@
 package com.eliakin.ecommerce.controller;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +18,16 @@ import com.eliakin.ecommerce.service.CheckoutService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
 
+import lombok.extern.log4j.Log4j2;
+
+
+@Log4j2
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
 
+	//private static final Logger LOGGER = LogManager.getLogger(CheckoutController.class);
+	
     private CheckoutService checkoutService;
     
     @Autowired
@@ -28,18 +37,18 @@ public class CheckoutController {
 
     @PostMapping("/purchase")
     public PurchaseResponse placeOrder(@RequestBody Purchase purchase) {
-
+    	log.info("Purchase Info Message");
         return checkoutService.placeOrder(purchase);
     }
     
     
     @PostMapping("/payment-intent")
     public ResponseEntity<String> createPaymentIntent(@RequestBody PaymentInfo paymentInfo) throws StripeException {
-
+    	log.info("creating payment intent");
         PaymentIntent paymentIntent = checkoutService.createPaymentIntent(paymentInfo);
 
         String paymentStr = paymentIntent.toJson();
-
+        log.info("Returning payment intent");
         return new ResponseEntity<>(paymentStr, HttpStatus.OK);
     }
 
