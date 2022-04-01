@@ -38,7 +38,7 @@ import { DashboardSidebarComponent } from "./components/dashboard-sidebar/dashbo
 import { DashboardNavbarComponent } from "./components/dashboard-navbar/dashboard-navbar.component";
 import { DashboardProductListComponent } from "./components/dashboard-product-list/dashboard-product-list.component";
 import { DashboardProductFormComponent } from "./components/dashboard-product-form/dashboard-product-form.component";
-import { DashboardWidgetComponent } from './components/dashboard-widget/dashboard-widget.component';
+import { DashboardWidgetComponent } from "./components/dashboard-widget/dashboard-widget.component";
 
 const oktaConfig = Object.assign(
 	{
@@ -132,7 +132,7 @@ const routes: Routes = [
 		DashboardNavbarComponent,
 		DashboardProductListComponent,
 		DashboardProductFormComponent,
-  DashboardWidgetComponent,
+		DashboardWidgetComponent,
 	],
 	imports: [
 		RouterModule.forRoot(routes),

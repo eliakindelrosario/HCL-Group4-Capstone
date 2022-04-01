@@ -12,20 +12,19 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<!-- <th>SKU</th> -->
+					<th>SKU</th>
 					<th>Name</th>
 					<!-- <th>Description</th> -->
 					<th>Unit Price</th>
 					<th>Active</th>
 					<th>Units In Stock</th>
 					<th></th>
-					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr *ngFor="let product of products">
 					<td>{{ product.id }}</td>
-					<!-- <td>{{ product.sku }}</td> -->
+					<td>{{ product.sku }}</td>
 					<td>{{ product.name }}</td>
 					<!-- <td>{{ product.description }}</td> -->
 					<td>{{ product.unitPrice }}</td>
@@ -38,13 +37,6 @@
 							(click)="upDateProduct(product.id)"
 						>
 							Update</a
-						>
-					</td>
-					<td width="7%">
-						<a
-							class="btn btn-danger btn-sm"
-							(click)="deleteProduct(product.id)"
-							>Delete</a
 						>
 					</td>
 				</tr>

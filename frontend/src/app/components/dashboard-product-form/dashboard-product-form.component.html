@@ -14,11 +14,16 @@
 						[src]="isUpdate ? product.imageUrl : tempImgUrl"
 						class="img-box"
 					/>
-					<input
-						formControlName="imageUrl"
-						type="file"
-						class="file-input"
-					/>
+					<label class="image-label">
+						<span>Select Image</span>
+						<input
+							formControlName="imageUrl"
+							type="file"
+							accept="image/*"
+							class="file-input"
+							(change)="processImage($event)"
+						/>
+					</label>
 				</div>
 				<div class="col-md-9">
 					<div class="row mb-4">
@@ -58,7 +63,7 @@
 				</div>
 			</div>
 
-			<button class="btn btn-primary next-btn">Next</button>
+			<button class="btn btn-primary next-btn">Update</button>
 		</div>
 	</form>
 </div>

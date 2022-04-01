@@ -7,6 +7,7 @@ import {
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "src/app/common/product";
+import { ImageService } from "src/app/services/image-service.service";
 import { ProductService } from "src/app/services/product.service";
 @Component({
 	selector: "app-dashboard-product-form",
@@ -23,7 +24,8 @@ export class DashboardProductFormComponent implements OnInit {
 		private formBuilder: FormBuilder,
 		private route: ActivatedRoute,
 		private productService: ProductService,
-		private router: Router
+		private router: Router,
+		private imageService: ImageService
 	) {}
 
 	isUpdate: boolean = false;
@@ -51,6 +53,14 @@ export class DashboardProductFormComponent implements OnInit {
 
 	onSubmit() {
 		console.log(this.productFormGroup.value);
+		if (this.isUpdate) {
+			// PUT
+			const productId: number = +this.route.snapshot.paramMap.get("id");
+			console.log("Update ", productId);
+		} else {
+			// POST
+			console.log("Add New Product");
+		}
 	}
 
 	getProductdetails() {
@@ -68,7 +78,9 @@ export class DashboardProductFormComponent implements OnInit {
 					Validators.required,
 				]),
 				imageUrl: new FormControl("", [Validators.required]),
-				active: new FormControl(true, [Validators.required]),
+				active: new FormControl(this.product.active, [
+					Validators.required,
+				]),
 				unitsInStock: new FormControl(this.product.unitsInStock, [
 					Validators.required,
 				]),
@@ -76,5 +88,20 @@ export class DashboardProductFormComponent implements OnInit {
 		});
 		// UNDERSTAND
 		console.log(this.product.active);
+	}
+
+	processImage(e) {
+		if (e.target.files) {
+			const reader = new FileReader();
+			reader.readAsDataURL(e.target.files[0]);
+			reader.onload = (event: any) => {
+				this.tempImgUrl = event.target.result;
+			};
+
+			this.imageService.uploadImage(e.target.files[0]).subscribe(
+				(res) => {},
+				(err) => {}
+			);
+		}
 	}
 }
