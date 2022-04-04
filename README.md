@@ -1,5 +1,10 @@
 # HCL-Capstone-Project-Group
 
+# SonarCloud:
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=esmee-test_Tealpanda&metric=coverage)](https://sonarcloud.io/summary/new_code?id=esmee-test_Tealpanda)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=esmee-test_Tealpanda&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=esmee-test_Tealpanda)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=esmee-test_Tealpanda&metric=bugs)](https://sonarcloud.io/summary/new_code?id=esmee-test_Tealpanda)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=esmee-test_Tealpanda&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=esmee-test_Tealpanda)
 
 ## Setup Angular
 
@@ -94,8 +99,4 @@ export const environment = {
 	stripePublishableKey: "",
 };
 ```
-
-
-
-# Add SonarCloud 
 
