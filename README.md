@@ -1,7 +1,5 @@
 # HCL-Capstone-Project-Group
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=eliakindelrosario_HCL-Group4-Capstone&metric=coverage)](https://sonarcloud.io/summary/new_code?id=eliakindelrosario_HCL-Group4-Capstone)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=eliakindelrosario_HCL-Group4-Capstone&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=eliakindelrosario_HCL-Group4-Capstone)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=eliakindelrosario_HCL-Group4-Capstone&metric=bugs)](https://sonarcloud.io/summary/new_code?id=eliakindelrosario_HCL-Group4-Capstone)
+
 
 ## Setup Angular
 
