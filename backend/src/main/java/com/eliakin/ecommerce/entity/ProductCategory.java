@@ -11,14 +11,23 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name="product_category")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductCategory {
+
+    public ProductCategory(Long category_id, String string) {
+        this.id = category_id;
+        this.categoryName = string;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

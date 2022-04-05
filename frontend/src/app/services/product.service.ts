@@ -15,6 +15,21 @@ export class ProductService {
 
 	constructor(private http: HttpClient) {}
 
+	createNewProduct(product: Product, category: any): Observable<any> {
+		const createURL = environment.luv2ShopApiUrl + `/${category}/products`;
+		return this.http.post<Product>(createURL, product);
+	}
+
+	updateProduct(
+		product: Product,
+		category: any,
+		product_id: any
+	): Observable<any> {
+		const updateURL =
+			environment.luv2ShopApiUrl + `/${category}/products/${product_id}`;
+		return this.http.put<Product>(updateURL, product);
+	}
+
 	getAllProductPaginate(
 		pageNumber: number,
 		pageSize: number

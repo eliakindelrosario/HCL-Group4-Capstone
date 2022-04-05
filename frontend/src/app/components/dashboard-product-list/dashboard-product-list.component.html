@@ -13,6 +13,7 @@
 				<tr>
 					<th>ID</th>
 					<th>SKU</th>
+					<th>Image</th>
 					<th>Name</th>
 					<!-- <th>Description</th> -->
 					<th>Unit Price</th>
@@ -25,6 +26,14 @@
 				<tr *ngFor="let product of products">
 					<td>{{ product.id }}</td>
 					<td>{{ product.sku }}</td>
+					<td>
+						<img
+							src="{{ product.imageUrl }}"
+							alt=""
+							width="150px"
+							height="150px"
+						/>
+					</td>
 					<td>{{ product.name }}</td>
 					<!-- <td>{{ product.description }}</td> -->
 					<td>{{ product.unitPrice }}</td>

@@ -37,13 +37,22 @@
 						</div>
 					</div>
 					<div class="row mb-4">
-						<div class="col-md-12 dash-form-group">
+						<div class="col-md-8 dash-form-group">
 							<label class="title">Description</label>
 							<textarea
 								formControlName="description"
 								type="text"
 								rows="4"
 							></textarea>
+						</div>
+						<div class="col-md-4 dash-form-group">
+							<label class="title">Category</label>
+							<select formControlName="category">
+								<option [ngValue]="1">Cupcake</option>
+								<option [ngValue]="2">Cookie</option>
+								<option [ngValue]="3">Muffin</option>
+								<option [ngValue]="4">Cake</option>
+							</select>
 						</div>
 					</div>
 					<div class="row mb-4">
@@ -63,7 +72,9 @@
 				</div>
 			</div>
 
-			<button class="btn btn-primary next-btn">Update</button>
+			<button class="btn btn-primary next-btn">
+				{{ isUpdate ? "Update" : "Add New" }}
+			</button>
 		</div>
 	</form>
 </div>

@@ -18,6 +18,7 @@ import { CheckoutComponent } from "./components/checkout/checkout.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./components/login/login.component";
 import { LoginStatusComponent } from "./components/login-status/login-status.component";
+import { CloudinaryModule } from "@cloudinary/ng";
 
 import { OktaAuth } from "@okta/okta-auth-js";
 
@@ -141,6 +142,7 @@ const routes: Routes = [
 		NgbModule,
 		ReactiveFormsModule,
 		OktaAuthModule,
+		CloudinaryModule,
 	],
 	providers: [
 		ProductService,
