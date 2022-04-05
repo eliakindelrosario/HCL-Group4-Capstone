@@ -101,10 +101,10 @@ const routes: Routes = [
 			{ path: "login", component: LoginComponent },
 
 			{ path: "checkout", component: CheckoutComponent },
+			{ path: "cart-details", component: CartDetailsComponent },
 			{ path: "search/:keyword", component: ProductListComponent },
 			{ path: "category/:id", component: ProductListComponent },
 			{ path: ":id", component: ProductDetailsComponent },
-			{ path: "cart-details", component: CartDetailsComponent },
 			{ path: "category", component: ProductListComponent },
 			{ path: "", component: ProductListComponent },
 		],
