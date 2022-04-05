@@ -77,6 +77,7 @@ const routes: Routes = [
 	{
 		path: "dashboard",
 		component: DashbaordComponent,
+		canActivate: [OktaAuthGuard],
 		children: [
 			{ path: "", component: DashboardProductListComponent },
 			{ path: "update/:id", component: DashboardProductFormComponent },

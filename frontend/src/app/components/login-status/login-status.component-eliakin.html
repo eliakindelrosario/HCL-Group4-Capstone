@@ -34,7 +34,16 @@
 			>
 				Members
 			</button>
+
 			<hr class="divider" />
+			<button
+				routerLink="/dashboard"
+				class="menu-login-btn mt-2"
+				*ngIf="isAuthenticated && isAdmin"
+			>
+				Dashboard
+			</button>
+			<hr class="divider" *ngIf="isAuthenticated && isAdmin" />
 			<button
 				*ngIf="isAuthenticated"
 				(click)="logout()"

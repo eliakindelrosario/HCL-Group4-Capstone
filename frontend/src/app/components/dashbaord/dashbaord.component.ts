@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-dashbaord',
-  templateUrl: './dashbaord.component.html',
-  styleUrls: ['./dashbaord.component.css']
+	selector: "app-dashbaord",
+	templateUrl: "./dashbaord.component.html",
+	styleUrls: ["./dashbaord.component.css"],
 })
 export class DashbaordComponent implements OnInit {
+	storage: Storage = sessionStorage;
 
-  constructor() { }
+	isAdmin: boolean = this.storage.getItem("isAdmin") === "true";
+	constructor() {}
 
-  ngOnInit(): void {
-  }
-
+	ngOnInit(): void {
+		console.log("");
+	}
 }

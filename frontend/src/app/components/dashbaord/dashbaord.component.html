@@ -1,4 +1,4 @@
-<div class="dashboard">
+<div *ngIf="isAdmin" class="dashboard">
 	<!-- SIDEBAR -->
 	<app-dashboard-sidebar></app-dashboard-sidebar>
 	<!-- MAIN CONTENT -->
@@ -9,3 +9,5 @@
 		<router-outlet></router-outlet>
 	</div>
 </div>
+
+<div *ngIf="!isAdmin">Cannot Access This Page</div>
