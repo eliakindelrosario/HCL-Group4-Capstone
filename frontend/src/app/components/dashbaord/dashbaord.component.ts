@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: "app-dashbaord",
@@ -9,9 +10,12 @@ export class DashbaordComponent implements OnInit {
 	storage: Storage = sessionStorage;
 
 	isAdmin: boolean = this.storage.getItem("isAdmin") === "true";
-	constructor() {}
+	constructor(public router: Router) {}
 
 	ngOnInit(): void {
 		console.log("");
+		if (!this.isAdmin){
+			this.router.navigateByUrl("/products");
+		}
 	}
 }
