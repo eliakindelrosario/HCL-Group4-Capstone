@@ -16,7 +16,7 @@ export class ProductService {
 	constructor(private http: HttpClient) {}
 
 	createNewProduct(product: Product, category: any): Observable<any> {
-		const createURL = environment.luv2ShopApiUrl + `/${category}/products`;
+		const createURL = environment.luv2ShopApiUrl + `/dashboard/${category}/products`;
 		return this.http.post<Product>(createURL, product);
 	}
 
@@ -26,7 +26,7 @@ export class ProductService {
 		product_id: any
 	): Observable<any> {
 		const updateURL =
-			environment.luv2ShopApiUrl + `/${category}/products/${product_id}`;
+			environment.luv2ShopApiUrl + `/dashboard/${category}/products/${product_id}`;
 		return this.http.put<Product>(updateURL, product);
 	}
 
