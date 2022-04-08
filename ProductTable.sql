@@ -4,6 +4,31 @@ LIMIT 0, 1000
 
 -- Date: 2022-04-07 10:57
 */
+
+DROP TABLE IF EXISTS `tealpanda.product`;
+
+-- -----------------------------------------------------
+-- Table `tealpanda`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tealpanda`.`product` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `sku` VARCHAR(255) DEFAULT NULL,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `description` VARCHAR(255) DEFAULT NULL,
+  `unit_price` DECIMAL(13,2) DEFAULT NULL,
+  `image_url` VARCHAR(255) DEFAULT NULL,
+  `active` BIT DEFAULT 1,
+  `units_in_stock` INT(11) DEFAULT NULL,
+  `date_created` DATETIME(6) DEFAULT NULL,
+  `last_updated` DATETIME(6) DEFAULT NULL,
+  `category_id` BIGINT(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_category` (`category_id`),
+  CONSTRAINT `fk_category` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`id`)
+) 
+ENGINE=InnoDB
+AUTO_INCREMENT = 1;
+
 INSERT INTO `` (`id`,`sku`,`name`,`description`,`unit_price`,`image_url`,`active`,`units_in_stock`,`date_created`,`last_updated`,`category_id`) VALUES (1,'CUPCAKE-1000','Chocolate Cupcake','Chocolate cupcake iced with chocolate buttercream.',3.25,'https://res.cloudinary.com/dl5meolll/image/upload/v1649084533/products/cupcake-tealpanda-1000_pwkpil.jpg','1',144,'2022-03-22 10:07:18.000000',NULL,1);
 INSERT INTO `` (`id`,`sku`,`name`,`description`,`unit_price`,`image_url`,`active`,`units_in_stock`,`date_created`,`last_updated`,`category_id`) VALUES (2,'CUPCAKE-1001','Fresh Strawberry Cupcake','Vanilla cupcake base with chunks of strawberries in the batter. Topped with strawberry buttercream and a stawberry half.',4.99,'https://res.cloudinary.com/dl5meolll/image/upload/v1649084533/products/cupcake-tealpanda-1001_mz83fn.jpg','1',144,'2022-03-22 10:07:18.000000',NULL,1);
 INSERT INTO `` (`id`,`sku`,`name`,`description`,`unit_price`,`image_url`,`active`,`units_in_stock`,`date_created`,`last_updated`,`category_id`) VALUES (3,'CUPCAKE-1002','Funfetti Cupcake','Vanilla cupcake base with funfetti sprinkles in the batter. Topped with buttercream and funfetti sprinkles.',2.99,'https://res.cloudinary.com/dl5meolll/image/upload/v1649084533/products/cupcake-tealpanda-1002_agabml.jpg','1',144,'2022-03-22 10:07:18.000000',NULL,1);
