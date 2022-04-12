@@ -9,7 +9,7 @@ trigger:
       - main
   paths:
     include:
-      -backend/**
+      - backend/**
 
 pool:
   vmImage: ubuntu-latest
@@ -28,7 +28,7 @@ steps:
         sonar.projectName=Tealpanda
 - task: Maven@3
   inputs:
-    mavenPomFile: 'pom.xml'
+    mavenPomFile: 'backend/pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '11'
