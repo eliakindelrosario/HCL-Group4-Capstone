@@ -4,9 +4,10 @@
 
 export const environment = {
 	production: false,
-	//luv2ShopApiUrl: "http://localhost:8080/api",
-	luv2ShopApiUrl: "https://tealpanda-backend.azurewebsites.net/api",
-	stripePublishableKey: "pk_test_51KgBSNGV1j4Hc7OZBTV4Rx4W7GnQqOopUxYg8B1twCndBvQHwNyzWEhEvmHsvwnkJpkqEhqOt8FvKLmFRXpE3dLG00gCi6PAle"
+	luv2ShopApiUrl: "http://localhost:8080/api",
+	//luv2ShopApiUrl: "https://tealpanda-backend.azurewebsites.net/api",
+	//stripePublishableKey: "pk_test_51KgBSNGV1j4Hc7OZBTV4Rx4W7GnQqOopUxYg8B1twCndBvQHwNyzWEhEvmHsvwnkJpkqEhqOt8FvKLmFRXpE3dLG00gCi6PAle"
+	stripePublishableKey: "pk_test_51KgWPGHQrdgjcdBVY7bRMUydod0BFTHEhyWGGb5P3HgauijQtSguTF8IvmFuuf6PnxiwJ69s12m26HbeunkCraVL00TwIS4GoY"
 };
 
 /*
