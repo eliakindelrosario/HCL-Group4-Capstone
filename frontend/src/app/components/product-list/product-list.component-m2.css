@@ -1,0 +1,38 @@
+.pad {
+	padding-top: 80px;
+}
+
+.product {
+	position: relative;
+}
+
+.product a img {
+	position: absolute;
+	border-radius: 5px;
+}
+
+.product .produt-info {
+	position: absolute;
+	bottom: 0;
+}
+
+.footer-pagination {
+	display: flex;
+	justify-content: flex-end;
+	padding: 15px 0;
+}
+
+.footer-pagination .page-size {
+	margin-left: 25px;
+}
+
+.footer-pagination .page-size span {
+	margin-right: 10px;
+}
+
+.search-container {
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

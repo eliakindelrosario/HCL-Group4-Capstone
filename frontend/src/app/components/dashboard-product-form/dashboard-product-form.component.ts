@@ -109,7 +109,7 @@ export class DashboardProductFormComponent implements OnInit {
 
 	onSubmit() {
 		if (this.isUpdate) {
-			console.log("is_update");
+			// console.log("is_update");
 			// if image is new, upload it and save new image-url
 			if (
 				this.product.imageUrl !== this.productFormGroup.value.imageUrl
@@ -128,7 +128,7 @@ export class DashboardProductFormComponent implements OnInit {
 					// PUT
 					const productId: number =
 						+this.route.snapshot.paramMap.get("id");
-					console.log("Update Product", productId);
+					// console.log("Update Product", productId);
 					const category = this.productFormGroup.value.category;
 					let product = new Product();
 
@@ -146,20 +146,14 @@ export class DashboardProductFormComponent implements OnInit {
 					this.productService
 						.updateProduct(product, category, productId)
 						.subscribe({
-							next: (response) => {
-								alert(
-									`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`
-								);
-							},
-							error: (err) => {
-								alert(`There was an error: ${err.message}`);
-							},
+							next: (response) => {},
+							error: (err) => {},
 						});
 				});
 			}
 		} else {
 			// POST
-			console.log("create-new");
+			// console.log("create-new");
 
 			// Uplaod Image and get image url
 			const imageData = new FormData();
@@ -167,10 +161,10 @@ export class DashboardProductFormComponent implements OnInit {
 			imageData.append("upload_preset", cloudinaryConfig.upload_preset);
 
 			this.uploadService.uploadImage(imageData).subscribe((res) => {
-				console.log(res.secure_url);
+				// console.log(res.secure_url);
 				this.productFormGroup.value.imageUrl = res.secure_url;
 
-				console.log("new product", this.productFormGroup.value);
+				// console.log("new product", this.productFormGroup.value);
 				// POST
 				// Get Category
 				const category = this.productFormGroup.value.category;
@@ -187,12 +181,10 @@ export class DashboardProductFormComponent implements OnInit {
 					.createNewProduct(product, category)
 					.subscribe({
 						next: (response) => {
-							alert(
-								`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`
-							);
+							// alert();
 						},
 						error: (err) => {
-							alert(`There was an error: ${err.message}`);
+							// alert();
 						},
 					});
 			});

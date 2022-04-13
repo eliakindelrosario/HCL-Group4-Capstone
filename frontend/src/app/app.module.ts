@@ -40,6 +40,10 @@ import { DashboardNavbarComponent } from "./components/dashboard-navbar/dashboar
 import { DashboardProductListComponent } from "./components/dashboard-product-list/dashboard-product-list.component";
 import { DashboardProductFormComponent } from "./components/dashboard-product-form/dashboard-product-form.component";
 import { DashboardWidgetComponent } from "./components/dashboard-widget/dashboard-widget.component";
+import { StoreComponent } from "./components/store/store.component";
+import { ProductInfoComponent } from "./components/product-info/product-info.component";
+import { HomeAboutComponent } from "./components/home-about/home-about.component";
+import { HomeInfoComponent } from "./components/home-info/home-info.component";
 
 const oktaConfig = Object.assign(
 	{
@@ -101,13 +105,21 @@ const routes: Routes = [
 			{ path: "login/callback", component: OktaCallbackComponent },
 			{ path: "login", component: LoginComponent },
 
+			// { path: "store", component: StoreComponent },
+			{ path: "store", component: ProductListComponent },
+			{ path: "about", component: HomeAboutComponent },
+			{ path: "product-info", component: ProductInfoComponent },
+
 			{ path: "checkout", component: CheckoutComponent },
 			{ path: "cart-details", component: CartDetailsComponent },
 			{ path: "search/:keyword", component: ProductListComponent },
 			{ path: "category/:id", component: ProductListComponent },
 			{ path: ":id", component: ProductDetailsComponent },
 			{ path: "category", component: ProductListComponent },
-			{ path: "", component: ProductListComponent },
+
+			// { path: "", component: ProductListComponent },
+
+			{ path: "", component: HomeInfoComponent },
 		],
 	},
 	{ path: "", redirectTo: "/products", pathMatch: "full" },
@@ -135,6 +147,10 @@ const routes: Routes = [
 		DashboardProductListComponent,
 		DashboardProductFormComponent,
 		DashboardWidgetComponent,
+		StoreComponent,
+		ProductInfoComponent,
+		HomeAboutComponent,
+		HomeInfoComponent,
 	],
 	imports: [
 		RouterModule.forRoot(routes),

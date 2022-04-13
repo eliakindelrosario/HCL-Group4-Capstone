@@ -1,0 +1,236 @@
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 1000;
+	box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+	width: 200px;
+	padding: 10px 0;
+}
+
+header .logo img {
+	width: 150px;
+	height: 40px;
+}
+
+header .navbar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+header .navbar a {
+	font-size: 1rem;
+	border-radius: 0.5rem;
+	padding: 0.5rem 1rem;
+	margin: 0 3px;
+	color: #666;
+	text-transform: capitalize;
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+	color: #fff;
+	background: teal;
+}
+
+header .icons i,
+header .icons a {
+	cursor: pointer;
+	margin-left: 0.2rem;
+	height: 1.6rem;
+	line-height: 1.8rem;
+	width: 1.6rem;
+	text-align: center;
+	font-size: 1rem;
+	color: #192a56;
+	border-radius: 50%;
+	background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover {
+	color: #fff;
+	background: teal;
+	/* transform: rotate(360deg); */
+}
+
+header .icons #menu-bars {
+	display: none;
+}
+
+.site-heading {
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	text-transform: uppercase;
+	line-height: 1;
+	font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.site-heading .site-heading-upper {
+	display: block;
+	font-size: 2rem;
+	font-weight: 800;
+}
+.site-heading .site-heading-lower {
+	font-size: 5rem;
+	font-weight: 100;
+	line-height: 4rem;
+}
+
+.text-primary {
+	--bs-text-opacity: 1;
+	color: rgba(230, 167, 86, var(--bs-text-opacity)) !important;
+}
+
+.page-section {
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+
+.section-heading {
+	text-transform: uppercase;
+}
+.section-heading .section-heading-upper {
+	display: block;
+	font-size: 1rem;
+	font-weight: 800;
+}
+.section-heading .section-heading-lower {
+	display: block;
+	font-size: 3rem;
+	font-weight: 100;
+}
+
+.bg-faded {
+	background-color: rgba(0, 160, 133, 0.7);
+	color: #fff;
+}
+
+.bg-faded span {
+	color: #fff;
+}
+
+.intro {
+	position: relative;
+}
+@media (min-width: 992px) {
+	.intro .intro-img {
+		width: 75%;
+		float: right;
+	}
+	.intro .intro-text {
+		left: 0;
+		width: 60%;
+		margin-top: 3rem;
+		position: absolute;
+	}
+	.intro .intro-text .intro-button {
+		width: 100%;
+		left: 0;
+		position: absolute;
+		bottom: -2rem;
+	}
+}
+@media (min-width: 1200px) {
+	.intro .intro-text {
+		width: 45%;
+	}
+}
+
+.cta {
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	/* background-color: rgba(0, 163, 136, 0.9); */
+	background: #fff;
+}
+
+.cta .cta-inner {
+	position: relative;
+	padding: 3rem;
+	margin: 0.5rem;
+}
+.cta .cta-inner:before {
+	border-radius: 0.5rem;
+	content: "";
+	position: absolute;
+	top: -0.5rem;
+	bottom: -0.5rem;
+	left: -0.5rem;
+	right: -0.5rem;
+	border: 0.25rem solid rgba(255, 255, 255, 0.85);
+	z-index: -1;
+}
+
+.clearfix::after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+.rounded {
+	border-radius: 0.25rem !important;
+}
+
+.btn-xl {
+	font-weight: 700;
+	font-size: 0.9rem;
+	padding-top: 1.3rem;
+	padding-bottom: 1.3rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	background-color: rgb(1, 240, 200);
+	color: #555;
+	border: none;
+}
+
+.footer {
+	background-color: rgb(0, 39, 27);
+}
+
+header .items {
+	display: flex;
+}
+
+header .items .item {
+	display: flex;
+	align-items: center;
+	margin-right: 20px;
+	position: relative;
+}
+
+header .items .item .icon {
+	font-size: 20px;
+}
+
+header .items .item .avatar {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+header .items .item .counter {
+	width: 15px;
+	height: 15px;
+	background-color: red;
+	border-radius: 50%;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 10px;
+	font-weight: bold;
+	position: absolute;
+	top: -5px;
+	right: -5px;
+}

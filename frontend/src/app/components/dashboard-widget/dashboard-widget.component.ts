@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
 	selector: "app-dashboard-widget",
@@ -6,6 +6,10 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./dashboard-widget.component.css"],
 })
 export class DashboardWidgetComponent implements OnInit {
+	@Input() title = "";
+	@Input() isMoney: true;
+	@Input() link: "See details";
+
 	data: any = {
 		title: "BALANCE",
 		isMoney: true,

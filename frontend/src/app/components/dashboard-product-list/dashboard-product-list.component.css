@@ -49,3 +49,7 @@
 	padding: 20px;
 	gap: 20px;
 }
+
+.widget {
+	flex: 1;
+}
