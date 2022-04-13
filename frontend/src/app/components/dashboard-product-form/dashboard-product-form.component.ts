@@ -109,11 +109,14 @@ export class DashboardProductFormComponent implements OnInit {
 
 	onSubmit() {
 		if (this.isUpdate) {
-			// console.log("is_update");
+			console.log("is_update");
 			// if image is new, upload it and save new image-url
+			console.log(this.product.imageUrl);
+			console.log(this.productFormGroup.value.imageUrl);
 			if (
 				this.product.imageUrl !== this.productFormGroup.value.imageUrl
 			) {
+				console.log("Change in Image");
 				const imageData = new FormData();
 				imageData.append("file", this.tempImgUrl);
 				imageData.append(
@@ -150,6 +153,29 @@ export class DashboardProductFormComponent implements OnInit {
 							error: (err) => {},
 						});
 				});
+			} else {
+				// PUT
+				const productId: number =
+					+this.route.snapshot.paramMap.get("id");
+				// console.log("Update Product", productId);
+				const category = this.productFormGroup.value.category;
+				let product = new Product();
+
+				product.id = productId;
+				product.sku = this.productFormGroup.value.sku;
+				product.name = this.productFormGroup.value.name;
+				product.description = this.productFormGroup.value.description;
+				product.unitPrice = this.productFormGroup.value.unitPrice;
+				product.imageUrl = this.productFormGroup.value.imageUrl;
+				product.active = this.productFormGroup.value.active;
+				product.unitsInStock = this.productFormGroup.value.unitsInStock;
+
+				this.productService
+					.updateProduct(product, category, productId)
+					.subscribe({
+						next: (response) => {},
+						error: (err) => {},
+					});
 			}
 		} else {
 			// POST
@@ -189,5 +215,7 @@ export class DashboardProductFormComponent implements OnInit {
 					});
 			});
 		}
+
+		this.router.navigate(["/dashboard"]);
 	}
 }

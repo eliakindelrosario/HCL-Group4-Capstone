@@ -8,30 +8,26 @@
 			<app-product-category-menu></app-product-category-menu>
 		</div>
 
-		<div class="row d-flex justify-content-start position-relative">
-			<div *ngFor="let product of products" class="col-md-3 card mx-2">
+		<div class="row d-flex justify-content-center position-relative">
+			<div *ngFor="let product of products" class="col-md-2 product-box">
+				<a routerLink="/products/{{ product.id }}" class="img-btn">
+					<img src="{{ product.imageUrl }}" class="img-responsive" />
+				</a>
+				<div class="img-box"></div>
+
 				<a routerLink="/products/{{ product.id }}">
-					<img
-						src="{{ product.imageUrl }}"
-						class="img-responsive mb-4"
-					/>
+					<h3 class="pd-title">{{ product.name }}</h3>
 				</a>
 
-				<div class="produt-info">
-					<a routerLink="/products/{{ product.id }}">
-						<h3>{{ product.name }}</h3>
-					</a>
-
-					<div class="price">
-						{{ product.unitPrice | currency: "USD" }}
-					</div>
-					<button
-						(click)="addToCart(product)"
-						class="btn btn-primary btn-sm mt-2"
-					>
-						Add to cart
-					</button>
+				<div class="price">
+					{{ product.unitPrice | currency: "USD" }}
 				</div>
+				<button
+					(click)="addToCart(product)"
+					class="btn btn-primary btn-sm mt-2 pd-btn"
+				>
+					Add to cart
+				</button>
 			</div>
 		</div>
 
@@ -43,7 +39,7 @@
 			No products found.
 		</div>
 
-		<div class="footer-pagination">
+		<div class="footer-pagination mt-5">
 			<ngb-pagination
 				[(page)]="pageNumber"
 				[pageSize]="pageSize"

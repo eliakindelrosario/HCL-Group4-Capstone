@@ -1,7 +1,13 @@
 .img-responsive {
-  width: 100%;
+	width: 100%;
+	border-radius: 10px;
+	height: 70%;
 }
 
 .title {
-  font-size: 2.5rem;
+	font-size: 2.5rem;
+}
+
+.btn-fix {
+	width: 150px;
 }

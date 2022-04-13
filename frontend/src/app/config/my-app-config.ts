@@ -4,7 +4,8 @@ export default {
 		issuer: "https://dev-4073510.okta.com/oauth2/default",
 		//redirectUri: 'https://localhost:4200/login/callback',
 		//redirectUri: 'https://teal-panda.azurewebsites.net/login/callback',
-		redirectUri: "https://tealpanda.azurewebsites.net/login/callback",
+		redirectUri:
+			"https://tealpanda.azurewebsites.net/products/login/callback",
 		scopes: ["openid", "profile", "email"],
 	},
 };

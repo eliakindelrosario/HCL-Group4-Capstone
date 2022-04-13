@@ -1,17 +1,18 @@
-<div class="container py-5">
+<div class="container py-5 section-fix">
 	<div class="title h2">Shoping Cart</div>
 	<div *ngIf="cartItems.length > 0">
 		<table class="table table-bordered">
 			<tr *ngFor="let tempCartItem of cartItems">
 				<td>
-					<div class="d-flex">
+					<div
+						class="d-flex justify-content-start align-items-center"
+					>
 						<img
 							src="{{ tempCartItem.imageUrl }}"
 							class="img-responsive"
-							width="300px"
 						/>
 
-						<div class="content py-5">
+						<div class="content py-5 details">
 							<p class="h3"><b>{{ tempCartItem.name }}</b></p>
 							<p class="h5">
 								{{ tempCartItem.unitPrice | currency: "USD" }}
