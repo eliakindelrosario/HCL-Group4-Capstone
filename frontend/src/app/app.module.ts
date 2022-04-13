@@ -18,6 +18,7 @@ import { CheckoutComponent } from "./components/checkout/checkout.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./components/login/login.component";
 import { LoginStatusComponent } from "./components/login-status/login-status.component";
+import { CloudinaryModule } from "@cloudinary/ng";
 
 import { OktaAuth } from "@okta/okta-auth-js";
 
@@ -32,6 +33,17 @@ import myAppConfig from "./config/my-app-config";
 import { MembersPageComponent } from "./components/members-page/members-page.component";
 import { OrderHistoryComponent } from "./components/order-history/order-history.component";
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
+import { DashbaordComponent } from "./components/dashbaord/dashbaord.component";
+import { HomeComponent } from "./components/home/home.component";
+import { DashboardSidebarComponent } from "./components/dashboard-sidebar/dashboard-sidebar.component";
+import { DashboardNavbarComponent } from "./components/dashboard-navbar/dashboard-navbar.component";
+import { DashboardProductListComponent } from "./components/dashboard-product-list/dashboard-product-list.component";
+import { DashboardProductFormComponent } from "./components/dashboard-product-form/dashboard-product-form.component";
+import { DashboardWidgetComponent } from "./components/dashboard-widget/dashboard-widget.component";
+import { StoreComponent } from "./components/store/store.component";
+import { ProductInfoComponent } from "./components/product-info/product-info.component";
+import { HomeAboutComponent } from "./components/home-about/home-about.component";
+import { HomeInfoComponent } from "./components/home-info/home-info.component";
 
 const oktaConfig = Object.assign(
 	{
@@ -47,27 +59,69 @@ const oktaConfig = Object.assign(
 const oktaAuth = new OktaAuth(oktaConfig);
 
 const routes: Routes = [
+	// {
+	// 	path: "order-history",
+	// 	component: OrderHistoryComponent,
+	// 	canActivate: [OktaAuthGuard],
+	// },
+	// {
+	// 	path: "members",
+	// 	component: MembersPageComponent,
+	// 	canActivate: [OktaAuthGuard],
+	// },
+	// { path: "login/callback", component: OktaCallbackComponent },
+	// { path: "login", component: LoginComponent },
+	// { path: "checkout", component: CheckoutComponent },
+	// { path: "search/:keyword", component: ProductListComponent },
+	// { path: "category/:id", component: ProductListComponent },
+	// { path: "products/:id", component: ProductDetailsComponent },
+	// { path: "cart-details", component: CartDetailsComponent },
+	// { path: "category", component: ProductListComponent },
+	// { path: "products", component: ProductListComponent },
 	{
-		path: "order-history",
-		component: OrderHistoryComponent,
+		path: "dashboard",
+		component: DashbaordComponent,
 		canActivate: [OktaAuthGuard],
+		children: [
+			{ path: "", component: DashboardProductListComponent },
+			{ path: "update/:id", component: DashboardProductFormComponent },
+			{ path: "add-new", component: DashboardProductFormComponent },
+		],
 	},
 	{
-		path: "members",
-		component: MembersPageComponent,
-		canActivate: [OktaAuthGuard],
+		path: "products",
+		component: HomeComponent,
+		children: [
+			{
+				path: "order-history",
+				component: OrderHistoryComponent,
+				canActivate: [OktaAuthGuard],
+			},
+			{
+				path: "members",
+				component: MembersPageComponent,
+				canActivate: [OktaAuthGuard],
+			},
+			{ path: "login/callback", component: OktaCallbackComponent },
+			{ path: "login", component: LoginComponent },
+
+			// { path: "store", component: StoreComponent },
+			{ path: "store", component: ProductListComponent },
+			{ path: "about", component: HomeAboutComponent },
+			{ path: "product-info", component: ProductInfoComponent },
+
+			{ path: "checkout", component: CheckoutComponent },
+			{ path: "cart-details", component: CartDetailsComponent },
+			{ path: "search/:keyword", component: ProductListComponent },
+			{ path: "category/:id", component: ProductListComponent },
+			{ path: ":id", component: ProductDetailsComponent },
+			{ path: "category", component: ProductListComponent },
+
+			// { path: "", component: ProductListComponent },
+
+			{ path: "", component: HomeInfoComponent },
+		],
 	},
-
-	{ path: "login/callback", component: OktaCallbackComponent },
-	{ path: "login", component: LoginComponent },
-
-	{ path: "checkout", component: CheckoutComponent },
-	{ path: "search/:keyword", component: ProductListComponent },
-	{ path: "category/:id", component: ProductListComponent },
-	{ path: "products/:id", component: ProductDetailsComponent },
-	{ path: "cart-details", component: CartDetailsComponent },
-	{ path: "category", component: ProductListComponent },
-	{ path: "products", component: ProductListComponent },
 	{ path: "", redirectTo: "/products", pathMatch: "full" },
 	{ path: "**", redirectTo: "/products", pathMatch: "full" },
 ];
@@ -86,6 +140,17 @@ const routes: Routes = [
 		LoginStatusComponent,
 		MembersPageComponent,
 		OrderHistoryComponent,
+		DashbaordComponent,
+		HomeComponent,
+		DashboardSidebarComponent,
+		DashboardNavbarComponent,
+		DashboardProductListComponent,
+		DashboardProductFormComponent,
+		DashboardWidgetComponent,
+		StoreComponent,
+		ProductInfoComponent,
+		HomeAboutComponent,
+		HomeInfoComponent,
 	],
 	imports: [
 		RouterModule.forRoot(routes),
@@ -94,6 +159,7 @@ const routes: Routes = [
 		NgbModule,
 		ReactiveFormsModule,
 		OktaAuthModule,
+		CloudinaryModule,
 	],
 	providers: [
 		ProductService,

@@ -10,7 +10,7 @@
 		<div class="nav">
 			<button
 				*ngIf="!isAuthenticated"
-				routerLink="/login"
+				routerLink="/products/login"
 				class="menu-login-btn mt-2"
 				(click)="toggleUserMenu()"
 			>
@@ -18,7 +18,7 @@
 			</button>
 
 			<button
-				routerLink="/order-history"
+				routerLink="/products/order-history"
 				*ngIf="isAuthenticated"
 				class="menu-login-btn mt-2"
 				(click)="toggleUserMenu()"
@@ -27,14 +27,23 @@
 			</button>
 
 			<button
-				routerLink="/members"
+				routerLink="/products/members"
 				*ngIf="isAuthenticated"
 				class="menu-login-btn mt-2"
 				(click)="toggleUserMenu()"
 			>
 				Members
 			</button>
+
 			<hr class="divider" />
+			<button
+				routerLink="/dashboard"
+				class="menu-login-btn mt-2"
+				*ngIf="isAuthenticated && isAdmin"
+			>
+				Dashboard
+			</button>
+			<hr class="divider" *ngIf="isAuthenticated && isAdmin" />
 			<button
 				*ngIf="isAuthenticated"
 				(click)="logout()"

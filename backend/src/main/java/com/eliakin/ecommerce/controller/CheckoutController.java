@@ -19,6 +19,7 @@ import lombok.extern.log4j.Log4j2;
 
 
 @Log4j2
+// @CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {

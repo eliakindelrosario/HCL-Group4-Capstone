@@ -714,9 +714,3 @@ MigrationBackup/
 # Ignore transpiled typscript
 /training/typescript/*/*.js
 
-
-
-#### CONFIG FILES ####
-*application.properties
-*environment.ts
-my-app-config.ts

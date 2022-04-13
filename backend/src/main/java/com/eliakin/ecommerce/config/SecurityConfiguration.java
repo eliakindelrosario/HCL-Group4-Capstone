@@ -1,11 +1,13 @@
 package com.eliakin.ecommerce.config;
 
-import com.okta.spring.boot.oauth.Okta;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import com.okta.spring.boot.oauth.Okta;
+
 @Configuration
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
@@ -13,6 +15,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		// protect endpoint /api/orders
 		http.authorizeRequests().antMatchers("/api/orders/**").authenticated().and().oauth2ResourceServer().jwt();
+
+		// protect endpoint /api/{category_id}/**
+		http.authorizeRequests().antMatchers("/api/dashboard/**").authenticated().and().oauth2ResourceServer().jwt();
 
 		// add CORS filters
 		http.cors();
@@ -23,4 +28,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// disable CSRF since we are not using Cookies for session tracking
 		http.csrf().disable();
 	}
+	
 }

@@ -14,6 +14,7 @@ export class LoginStatusComponent implements OnInit {
 	storage: Storage = sessionStorage;
 
 	menuStatus: boolean = false;
+	isAdmin: boolean = false;
 
 	constructor(
 		private oktaAuthService: OktaAuthStateService,
@@ -33,14 +34,17 @@ export class LoginStatusComponent implements OnInit {
 				this.userFullName = res.name;
 
 				const userEmail = res.email;
-
 				this.storage.setItem("userEmail", JSON.stringify(userEmail));
+
+				this.isAdmin = res["groups"].includes("Admin");
+				this.storage.setItem("isAdmin", JSON.stringify(this.isAdmin));
 			});
 		}
 	}
 
 	logout() {
 		this.oktaAuth.signOut();
+		this.storage.clear();
 	}
 
 	toggleUserMenu() {

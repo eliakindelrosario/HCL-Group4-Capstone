@@ -1,0 +1,36 @@
+<header>
+	<div class="container d-flex justify-content-between align-items-center">
+		<a routerLink="/products" class="logo">
+			<img
+				src="assets/images/logo.png"
+				alt="luv2shop"
+				class="img-responsive"
+			/>
+		</a>
+
+		<!-- TODO - Mobile  Res-->
+		<nav class="navbar">
+			<a class="active" routerLink="/products">home</a>
+			<a routerLink="/products/about">about</a>
+			<a routerLink="/products/product-info">Products</a>
+			<a routerLink="/products/store">Store</a>
+		</nav>
+
+		<div class="items">
+			<div class="item">
+				<app-cart-status></app-cart-status>
+			</div>
+			<div class="item">
+				<app-login-status></app-login-status>
+			</div>
+		</div>
+	</div>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer class="footer text-faded text-center py-5">
+	<div class="container">
+		<p class="m-0 small">Copyright &copy; HCL Group 4 2022</p>
+	</div>
+</footer>

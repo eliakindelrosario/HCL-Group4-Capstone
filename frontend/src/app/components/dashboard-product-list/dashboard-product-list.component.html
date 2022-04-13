@@ -1,0 +1,97 @@
+<div class="container-fluid">
+	<!-- <div class="row container d-flex justify-content-center pt-2">
+		<app-dashboard-widget type="user" class="widget"></app-dashboard-widget>
+
+		<app-dashboard-widget
+			title="Orders"
+			class="widget"
+		></app-dashboard-widget>
+
+		<app-dashboard-widget
+			title="Earning"
+			class="widget"
+		></app-dashboard-widget>
+
+		<app-dashboard-widget
+			type="balance"
+			class="widget"
+		></app-dashboard-widget>
+	</div> -->
+
+	<div class="my-3 table-container">
+		<h2 class="title">Products</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>SKU</th>
+					<th>Image</th>
+					<th>Name</th>
+					<!-- <th>Description</th> -->
+					<th>Unit Price</th>
+					<th>Active</th>
+					<th>Units In Stock</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let product of products">
+					<td>{{ product.id }}</td>
+					<td>{{ product.sku }}</td>
+					<td>
+						<img
+							src="{{ product.imageUrl }}"
+							alt=""
+							width="150px"
+							height="150px"
+						/>
+					</td>
+					<td>{{ product.name }}</td>
+					<!-- <td>{{ product.description }}</td> -->
+					<td>{{ product.unitPrice }}</td>
+					<td>{{ product.active }}</td>
+					<td>{{ product.unitsInStock }}</td>
+					<td width="7%">
+						<a
+							routerLink="update/{{ product.id }}"
+							class="btn btn-secondary btn-sm"
+							(click)="upDateProduct(product.id)"
+						>
+							Update</a
+						>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a routerLink="add-new">
+			<button class="btn-new btn btn-primary my-2">Add New</button>
+		</a>
+
+		<div class="footer-pagination">
+			<div class="row">
+				<div class="col-md-4"></div>
+
+				<div class="col-md-8 d-flex">
+					<ngb-pagination
+						[(page)]="pageNumber"
+						[pageSize]="pageSize"
+						[collectionSize]="totalElements"
+						[maxSize]="5"
+						[boundaryLinks]="true"
+						(pageChange)="handleListProducts()"
+					></ngb-pagination>
+
+					<div class="px-4">
+						<span class="mx-2">Page Size</span>
+						<select (change)="updatePageSize($event)">
+							<option selected="true">10</option>
+							<option>20</option>
+							<option>30</option>
+							<option>50</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

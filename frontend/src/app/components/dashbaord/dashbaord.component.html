@@ -1,0 +1,11 @@
+<div *ngIf="isAdmin" class="dashboard">
+	<!-- SIDEBAR -->
+	<app-dashboard-sidebar></app-dashboard-sidebar>
+	<!-- MAIN CONTENT -->
+	<div class="dashboard-container">
+		<!-- NAVBAR -->
+		<app-dashboard-navbar></app-dashboard-navbar>
+		<!-- DASH COMPONENTS -->
+		<router-outlet></router-outlet>
+	</div>
+</div>

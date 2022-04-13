@@ -1,7 +1,7 @@
 <ul class="option-nav">
 	<li *ngFor="let category of productCategories">
 		<a
-			routerLink="/category/{{ category.id }}"
+			routerLink="/products/category/{{ category.id }}"
 			routerLinkActive="active-link"
 			>{{ category.categoryName }}</a
 		>
