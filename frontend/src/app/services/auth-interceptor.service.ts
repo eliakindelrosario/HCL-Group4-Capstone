@@ -7,7 +7,7 @@ import {
 import { Inject, Injectable } from "@angular/core";
 import { OKTA_AUTH } from "@okta/okta-angular";
 import { OktaAuth } from "@okta/okta-auth-js";
-import { from, Observable } from "rxjs";
+import { from, lastValueFrom, Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -27,8 +27,9 @@ export class AuthInterceptorService implements HttpInterceptor {
 		request: HttpRequest<any>,
 		next: HttpHandler
 	): Promise<HttpEvent<any>> {
-		const luv2ShopUrl = environment.luv2ShopApiUrl + "/orders";
-		const securedEndpoints = [luv2ShopUrl];
+		const luv2ShopUrlOrders = environment.luv2ShopApiUrl + "/orders";
+		const luv2ShopUrlCreateNew = environment.luv2ShopApiUrl + "/dashboard";
+		const securedEndpoints = [luv2ShopUrlOrders,luv2ShopUrlCreateNew];
 
 		if (
 			securedEndpoints.some((url) => request.urlWithParams.includes(url))
@@ -41,6 +42,6 @@ export class AuthInterceptorService implements HttpInterceptor {
 			});
 		}
 
-		return next.handle(request).toPromise();
+		return await lastValueFrom(next.handle(request));
 	}
 }

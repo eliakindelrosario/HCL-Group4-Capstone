@@ -44,6 +44,7 @@ export class LoginStatusComponent implements OnInit {
 
 	logout() {
 		this.oktaAuth.signOut();
+		this.storage.clear();
 	}
 
 	toggleUserMenu() {
